@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class LineLengthComparison {
-    public void lineComparisonUc1() {
+    public void calculateLength() {
 
         Scanner t = new Scanner(System.in);
         System.out.println("Enter Coordinate of X1, Y1");
@@ -14,7 +14,7 @@ class LineLengthComparison {
         System.out.println("lengthof line" + lengthof);
     }
 
-    public void lineComparisonUc2() {
+    public void checkIfEquals() {
         Scanner t = new Scanner(System.in);
         System.out.println("Enter Coordinate of First Line");
         System.out.println("Enter Coordinate of X1, Y1");
@@ -34,13 +34,11 @@ class LineLengthComparison {
         int y4 = t.nextInt();
         double length2 = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
         System.out.println("lengthof line" + length2);
-        if (length1 == (length2))
-            System.out.println("Two Lines Are Equal");
-        else
-            System.out.println("Two Line Are Not Equal");
+        if (length1 == (length2)) System.out.println("Two Lines Are Equal");
+        else System.out.println("Two Line Are Not Equal");
     }
 
-    public void lineComparisonUc3() {
+    public void compareLength() {
         Scanner t = new Scanner(System.in);
         System.out.println("Enter the Co-ordinates of 1st line ");
         System.out.println("Enter the Co-ordinates of x1 and y1 : ");
@@ -62,19 +60,16 @@ class LineLengthComparison {
         System.out.println("Length of the first Line is : " + length1 + " units");
         System.out.println("Length of the second Line is : " + length2 + " units");
         System.out.println();
-        if (length1.compareTo(length2) == 1)
-            System.out.println("Length of Line 1 is greater than Line 2 ");
-        else if (length1.compareTo(length2) == -1)
-            System.out.println("Length of Line 1 is less than Line 2 ");
-        else
-            System.out.println("Both lines are equal in length");
+        if (length1.compareTo(length2) == 1) System.out.println("Length of Line 1 is greater than Line 2 ");
+        else if (length1.compareTo(length2) == -1) System.out.println("Length of Line 1 is less than Line 2 ");
+        else System.out.println("Both lines are equal in length");
 
     }
 
     public static void main(String[] args) {
         LineLengthComparison measure = new LineLengthComparison();
-        measure.lineComparisonUc1();
-        measure.lineComparisonUc2();
-        measure.lineComparisonUc3();
+        measure.calculateLength();
+        measure.checkIfEquals();
+        measure.compareLength();
     }
 }
