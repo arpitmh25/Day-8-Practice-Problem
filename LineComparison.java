@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class LineComparison {
+class LineLengthComparison {
     public void lineComparisonUc1() {
 
         Scanner t = new Scanner(System.in);
@@ -70,22 +70,10 @@ class LineComparison {
 
     }
 
-    public static void main(String[] args) {
-        LineComparison measure = new LineComparison();
-        System.out.println("Enter the number of use case to be checked");
-        Scanner rs = new Scanner(System.in);
-        int lineLengtlineComparison = rs.nextInt();
-        switch (lineLengtlineComparison) {
-            case 1:
+		public static void main(String[] args) {
+			LineComparison measure = new LineComparison();
                 measure.lineComparisonUc1();
-                break;
-            case 2:
                 measure.lineComparisonUc2();
-                break;
-            case 3:
                 measure.lineComparisonUc3();
-                break;
-
-        }
     }
 }
