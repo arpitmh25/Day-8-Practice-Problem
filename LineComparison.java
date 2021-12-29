@@ -1,7 +1,10 @@
+package com.bridgelabz.day8;
+
 import java.util.Scanner;
 
-class CalculateLength {
+public class LineLengthComparison {
     public static int x1, x2, y1, y2, x3, x4, y3, y4;
+    static Double length1, length2;
 
     public void lengthValue() {
         Scanner sc = new Scanner(System.in);
@@ -20,39 +23,39 @@ class CalculateLength {
         x4 = sc.nextInt();
         y4 = sc.nextInt();
     }
-}
 
-class CheckIfEqual {
-    static Double length1, length2;
 
     public void lengthCalculation() {
-        length1 = Math.sqrt((CalculateLength.x2 - CalculateLength.x1) * (CalculateLength.x2 - CalculateLength.x1) + (CalculateLength.y2 - CalculateLength.y1) * (CalculateLength.y2 - CalculateLength.y1));
+        length1 = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
         System.out.println("Length of first line = " + length1 + " units");
-        length2 = Math.sqrt((CalculateLength.x4 - CalculateLength.x3) * (CalculateLength.x4 - CalculateLength.x3) + (CalculateLength.y4 - CalculateLength.y3) * (CalculateLength.y4 - CalculateLength.y3));
+        length2 = Math.sqrt((x4 - x3) ^ 2 + (y4 - y3) ^ 2);
         System.out.println("Length of second line = " + length2 + " units");
     }
-}
 
-class CompareLength {
-    public void checkRelation() {
-        if (CheckIfEqual.length1.compareTo(CheckIfEqual.length2) == 1) {
-            System.out.println("Line 1 is greater than Line 2 in length");
-        } else if (CheckIfEqual.length1.compareTo(CheckIfEqual.length2) == -1) {
-            System.out.println("Line 1 is less than Line 2 in length");
+    public void ifEquals() {
+        if (length1 == length2) {
+            System.out.println("Lines are equal");
         } else {
-            System.out.println("Both lines are EQUAL in length");
+            System.out.println("Lines are not equal");
         }
     }
-}
 
-public class LineLengthComparison {
+    public void checkRelation() {
+        if (length1 == length2) {
+            System.out.println("Lines are equal");
+        } else if (length1 > length2) {
+            System.out.println("line 1 is greater than line 2");
+        } else {
+            System.out.println("Line 1 is less than line 2");
+        }
+    }
+
     public static void main(String[] args) {
-        CalculateLength input = new CalculateLength();
+        LineLengthComparison input = new LineLengthComparison();
         input.lengthValue();
-        CheckIfEqual cal = new CheckIfEqual();
-        cal.lengthCalculation();
-        CompareLength compare = new CompareLength();
-        compare.checkRelation();
+        input.lengthCalculation();
+        input.ifEquals();
+        input.checkRelation();
     }
 }
 
