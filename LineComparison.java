@@ -1,75 +1,58 @@
 import java.util.Scanner;
 
-class LineLengthComparison {
-    public void calculateLength() {
+class CalculateLength {
+    public static int x1, x2, y1, y2, x3, x4, y3, y4;
 
-        Scanner t = new Scanner(System.in);
-        System.out.println("Enter Coordinate of X1, Y1");
-        int x1 = t.nextInt();
-        int y1 = t.nextInt();
-        System.out.println("Enter Coordinate of X2, Y2");
-        int x2 = t.nextInt();
-        int y2 = t.nextInt();
-        double lengthof = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-        System.out.println("lengthof line" + lengthof);
-    }
-
-    public void checkIfEquals() {
-        Scanner t = new Scanner(System.in);
-        System.out.println("Enter Coordinate of First Line");
-        System.out.println("Enter Coordinate of X1, Y1");
-        int x1 = t.nextInt();
-        int y1 = t.nextInt();
-        System.out.println("Enter Coordinate of X2, Y2");
-        int x2 = t.nextInt();
-        int y2 = t.nextInt();
-        double length1 = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-        System.out.println("lengthof line" + length1);
-        System.out.println("Enter Coordinate of Second Line");
-        System.out.println("Enter Coordinate of X3, Y3");
-        int x3 = t.nextInt();
-        int y3 = t.nextInt();
-        System.out.println("Enter Coordinate of X4, Y4");
-        int x4 = t.nextInt();
-        int y4 = t.nextInt();
-        double length2 = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-        System.out.println("lengthof line" + length2);
-        if (length1 == (length2)) System.out.println("Two Lines Are Equal");
-        else System.out.println("Two Line Are Not Equal");
-    }
-
-    public void compareLength() {
-        Scanner t = new Scanner(System.in);
-        System.out.println("Enter the Co-ordinates of 1st line ");
-        System.out.println("Enter the Co-ordinates of x1 and y1 : ");
-        int x1 = t.nextInt();
-        int y1 = t.nextInt();
-        System.out.println("Enter the Co-ordinates of x2 and y2 : ");
-        int x2 = t.nextInt();
-        int y2 = t.nextInt();
-        Double length1 = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-        System.out.println();
-        System.out.println("Enter the Co-ordinates of 2nd line ");
-        System.out.println("Enter the Co-ordinates of x3 and y3 : ");
-        int x3 = t.nextInt();
-        int y3 = t.nextInt();
-        System.out.println("Enter the Co-ordinates of x4 and y4 : ");
-        int x4 = t.nextInt();
-        int y4 = t.nextInt();
-        Double length2 = Math.sqrt((x4 - x3) ^ 2 + (y4 - y3) ^ 2);
-        System.out.println("Length of the first Line is : " + length1 + " units");
-        System.out.println("Length of the second Line is : " + length2 + " units");
-        System.out.println();
-        if (length1.compareTo(length2) == 1) System.out.println("Length of Line 1 is greater than Line 2 ");
-        else if (length1.compareTo(length2) == -1) System.out.println("Length of Line 1 is less than Line 2 ");
-        else System.out.println("Both lines are equal in length");
-
-    }
-
-    public static void main(String[] args) {
-        LineLengthComparison measure = new LineLengthComparison();
-        measure.calculateLength();
-        measure.checkIfEquals();
-        measure.compareLength();
+    public void lengthValue() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("For given line");
+        System.out.println("Enter co-ordinates of x1 and y1");
+        x1 = sc.nextInt();
+        y1 = sc.nextInt();
+        System.out.println("Enter co-ordinates of x2 and y2");
+        x2 = sc.nextInt();
+        y2 = sc.nextInt();
+        System.out.println("For second line");
+        System.out.println("Enter co-ordinates of x3 and y3");
+        x3 = sc.nextInt();
+        y3 = sc.nextInt();
+        System.out.println("Enter co-ordinates of x4 and y4");
+        x4 = sc.nextInt();
+        y4 = sc.nextInt();
     }
 }
+
+class CheckIfEqual {
+    static Double length1, length2;
+
+    public void lengthCalculation() {
+        length1 = Math.sqrt((CalculateLength.x2 - CalculateLength.x1) * (CalculateLength.x2 - CalculateLength.x1) + (CalculateLength.y2 - CalculateLength.y1) * (CalculateLength.y2 - CalculateLength.y1));
+        System.out.println("Length of first line = " + length1 + " units");
+        length2 = Math.sqrt((CalculateLength.x4 - CalculateLength.x3) * (CalculateLength.x4 - CalculateLength.x3) + (CalculateLength.y4 - CalculateLength.y3) * (CalculateLength.y4 - CalculateLength.y3));
+        System.out.println("Length of second line = " + length2 + " units");
+    }
+}
+
+class CompareLength {
+    public void checkRelation() {
+        if (CheckIfEqual.length1.compareTo(CheckIfEqual.length2) == 1) {
+            System.out.println("Line 1 is greater than Line 2 in length");
+        } else if (CheckIfEqual.length1.compareTo(CheckIfEqual.length2) == -1) {
+            System.out.println("Line 1 is less than Line 2 in length");
+        } else {
+            System.out.println("Both lines are EQUAL in length");
+        }
+    }
+}
+
+public class LineLengthComparison {
+    public static void main(String[] args) {
+        CalculateLength input = new CalculateLength();
+        input.lengthValue();
+        CheckIfEqual cal = new CheckIfEqual();
+        cal.lengthCalculation();
+        CompareLength compare = new CompareLength();
+        compare.checkRelation();
+    }
+}
+
